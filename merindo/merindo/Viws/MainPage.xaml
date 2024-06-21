@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="merindo.Views.MainPage"
+             Title="Main">
+    <ContentPage.Content>
+        <pancake:PancakeView BackgroundColor="#2C2C2C"
+                             Padding="30"
+                             Margin="0"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand">
+            <pancake:PancakeView.BackgroundGradientStops>
+                <pancake:GradientStopCollection>
+                    <pancake:GradientStop Color="#2C2C2C" Offset="0.0"/>
+                    <pancake:GradientStop Color="#4A4A4A" Offset="1.0"/>
+                </pancake:GradientStopCollection>
+            </pancake:PancakeView.BackgroundGradientStops>
+            <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Row="0" Grid.Column="0" CornerRadius="20" BorderColor="Gray" Padding="20" Margin="10" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="citas_icon.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Citas" FontSize="18" TextColor="#2C2C2C" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCitasTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Grid.Row="0" Grid.Column="1" CornerRadius="20" BorderColor="Gray" Padding="20" Margin="10" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="acerca_de_icon.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Acerca de" FontSize="18" TextColor="#2C2C2C" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAcercaDeTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="0" CornerRadius="20" BorderColor="Gray" Padding="20" Margin="10" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="usuario_icon.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Usuario" FontSize="18" TextColor="#2C2C2C" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnUsuarioTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Grid.Row="1" Grid.Column="1" CornerRadius="20" BorderColor="Gray" Padding="20" Margin="10" BackgroundColor="White">
+                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="info_icon.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Info" FontSize="18" TextColor="#2C2C2C" HorizontalOptions="Center"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnInfoTapped"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+        </pancake:PancakeView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="merindo.Views.RegisterPage"
+             Title="Register">
+    <ContentPage.Content>
+        <Grid>
+            <pancake:PancakeView BackgroundColor="#F0F0F0"
+                                 Padding="30"
+                                 Margin="0"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand">
+                <pancake:PancakeView.BackgroundGradientStops>
+                    <pancake:GradientStopCollection>
+                        <pancake:GradientStop Color="#2C2C2C" Offset="0.0"/>
+                        <pancake:GradientStop Color="#4A4A4A" Offset="1.0"/>
+                    </pancake:GradientStopCollection>
+                </pancake:PancakeView.BackgroundGradientStops>
+                <StackLayout VerticalOptions="CenterAndExpand">
+                    <Frame CornerRadius="20" BackgroundColor="Transparent" HasShadow="False">
+                        <StackLayout Padding="20">
+                            <Label Text="Registrase" FontSize="36" TextColor="White" Margin="0, 0, 0, 60" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Entry x:Name="usernameEntry" Placeholder="Usuario" TextColor="White" />
+                            <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True" TextColor="White" />
+                            <Button Text="Register" Clicked="OnRegisterButtonClicked" Margin="60, 40, 60, 1" BorderColor="White" CornerRadius="10" BorderWidth="2" BackgroundColor="Transparent" TextColor="White" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </pancake:PancakeView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

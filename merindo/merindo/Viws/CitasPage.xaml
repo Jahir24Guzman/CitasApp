@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:merindo.Helpers"
+             x:Class="merindo.Views.CitasPage"
+             Title="Citas">
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <!-- Calendario -->
+            <Label Text="Seleccione una fecha"
+                   TextColor="DarkSlateGray"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   HorizontalOptions="Center"/>
+            <DatePicker x:Name="datePicker"
+                        Date="{Binding SelectedDate}"
+                        MinimumDate="{Binding MinimumDate}"
+                        MaximumDate="{Binding MaximumDate}"
+                        HorizontalOptions="Center"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        Scale="1.8"
+                        Margin="18"/>
+
+            <!-- Selector de hora -->
+            <Label Text="Seleccione una hora"
+                   TextColor="DarkSlateGray"
+                   FontAttributes="Bold"
+                   FontSize="Large"
+                   HorizontalOptions="Center"/>
+            <TimePicker x:Name="timePicker"
+                        Time="{Binding SelectedTime}"
+                        HorizontalOptions="Center"
+                        FontSize="Large"
+                        FontAttributes="Bold"
+                        Scale="1.8"
+                        Margin="18"/>
+
+            <!-- Botones -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="Center"
+                         Padding="10">
+                <Frame BackgroundColor="White"
+                       WidthRequest="45"
+                       HeightRequest="45"
+                       CornerRadius="30"
+                       Padding="10">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnAgregarCitaClicked"/>
+                    </Frame.GestureRecognizers>
+                    <local:SvgIcon SvgPath="merindo.Resources.plus-solid.svg"
+                                   WidthRequest="25"
+                                   HeightRequest="25"
+                                   HorizontalOptions="CenterAndExpand"/>
+                </Frame>
+
+                <Frame BackgroundColor="White"
+                       WidthRequest="45"
+                       HeightRequest="45"
+                       CornerRadius="30"
+                       Padding="10"
+                       Margin="10,0">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEditarCitaClicked"/>
+                    </Frame.GestureRecognizers>
+                    <local:SvgIcon SvgPath="merindo.Resources.pen-solid.svg"
+                                   WidthRequest="25"
+                                   HeightRequest="25"
+                                   HorizontalOptions="CenterAndExpand"/>
+                </Frame>
+
+                <Frame BackgroundColor="White"
+                       WidthRequest="45"
+                       HeightRequest="45"
+                       CornerRadius="30"
+                       Padding="10">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnEliminarCitaClicked"/>
+                    </Frame.GestureRecognizers>
+                    <local:SvgIcon SvgPath="merindo.Resources.trash-solid.svg"
+                                   WidthRequest="25"
+                                   HeightRequest="25"
+                                   HorizontalOptions="CenterAndExpand"/>
+                </Frame>
+            </StackLayout>
+
+            <!-- Lista de citas -->
+            <CollectionView x:Name="citasCollectionView"
+                            ItemsSource="{Binding Citas}"
+                            SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Wheat"
+                               CornerRadius="18"
+                               Padding="15"
+                               Margin="10">
+                            <StackLayout>
+                                <Label Text="{Binding Fecha, StringFormat='Fecha: {0:dd/MM/yyyy HH:mm}'}" FontSize="18" TextColor="Wheat"/>
+                                <Label Text="{Binding NombreCliente, StringFormat='Cliente: {0}'}" FontSize="14" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Direccion, StringFormat='Dirección: {0}'}" FontSize="14" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Telefono, StringFormat='Teléfono: {0}'}" FontSize="14" TextColor="White" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Descripcion}" FontSize="14" TextColor="White" HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
